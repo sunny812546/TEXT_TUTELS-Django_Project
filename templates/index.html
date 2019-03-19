@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--Typed.js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+    <title>TEXT_TUTELS</title>
+    <style>
+        .footer {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           background-color: black;
+           color: white;
+           text-align: center;
+           display: block;
+        }
+      </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">TEXT_TUTELS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Conatct</a>
+            </li>
+           
+          </ul>
+
+    </nav>
+    <div class='container'>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Welcome to TEXT_TUTELS!</strong> You can do anything with your text here!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form action='output' onsubmit="return validate()" method='post'> {% csrf_token %}
+        <div class="form-group">
+            <h3><span id="typed"></span></h3>
+            
+            <textarea class="form-control" name='text' rows="5" id="comment"></textarea>
+          </div>
+          <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" name="a" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">First Letter Capital</label>
+            </div>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" name="b" id="customSwitch2">
+                <label class="custom-control-label" for="customSwitch2">Uppercase</label>
+              </div>
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" name="c" id="customSwitch3">
+                  <label class="custom-control-label" for="customSwitch3">Lowercase</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" name="d" id="customSwitch4">
+                    <label class="custom-control-label" for="customSwitch4">Extra Space Remover</label>
+                  </div>
+                  <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" name="e" id="customSwitch5">
+                      <label class="custom-control-label" for="customSwitch5">Remove Punc</label>
+                    </div>
+                <br>
+                <button type="submit" name="submit" class="btn btn-dark">Submit</button>
+          </form>
+    </div>
+    <!-- Typed.js DONT TOUCH THIS! --> 
+ <div id="typed-strings">
+  </div>
+  
+  <script>
+     var typed = new Typed('#typed',{
+                    strings:["You can do anything with your text here!","Enter your text here and let Text Utils do the magic!"],
+                    backSpeed: 15,
+                    smartBackspace: true,
+                    backDelay: 1200,
+                    startDelay: 1000,
+                    typeSpeed: 25,
+                    loop: false,
+                  });
+    </script>
+  <!-- Footer-->
+<footer class="footer">
+  <div class="container">
+    <span class="text-light">&#169 2019 TEXT_TUTELS </span>
+  </div>
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+      function validate(){
+      var textarea = document.getElementById('exampleFormControlTextarea1').value;
+      var span = document.getElementById('messageofvalidate');
+
+        if (textarea == '') {
+          span.innerHTML = 'Please Write Your Message';
+          return false;
+        }
+
+      }
+    </script>
+  </body>
+</html>
